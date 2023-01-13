@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Discord",
+    "icon": "../images/social-icons/discord.svg",
+    "href": "#"
+  },
+  {
+    "name": "Twitter",
+    "icon": "../images/social-icons/twitter.svg",
+    "href": "#"
+  },
+  {
+    "name": "Instagram",
+    "icon": "../images/social-icons/instagram.svg",
+    "href": "#"
+  }
+]
