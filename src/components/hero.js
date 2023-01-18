@@ -26,6 +26,7 @@ const query = graphql`
 const Hero = () => {
   const data = useStaticQuery(query) || {};
   const herovideo = data.allSanitySiteSettings?.nodes[0]?.herovideo?.asset;
+  console.log(herovideo);
   return (
     <div id="hero">
       <div className="relative">
