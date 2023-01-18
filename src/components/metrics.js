@@ -14,7 +14,7 @@ const query = graphql`
 
 const Metrics = () => {
   const data = useStaticQuery(query) || {};
-  const metricsData = data.allSanityStatistics.nodes;
+  const metricsData = data.allSanityStatistics?.nodes;
   return (
     <div className="metrics">
       <div className="container mx-auto">

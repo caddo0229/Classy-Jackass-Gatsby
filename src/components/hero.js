@@ -35,7 +35,7 @@ const Hero = () => {
             style={{ width: "100%" }}
             playbackId={herovideo?.playbackId}
             src={`https://stream.mux.com/${herovideo?.playbackId}.m3u8`}
-            poster={`https://image.mux.com/${herovideo?.playbackId}/thumbnail.png`}
+            poster={`https://image.mux.com/${herovideo?.playbackId}/thumbnail.png`}  
             metadata={{
               video_id: herovideo?.assetId,
               video_title: "Hero Video",

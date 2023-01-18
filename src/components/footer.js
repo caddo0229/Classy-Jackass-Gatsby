@@ -53,8 +53,8 @@ const query = graphql`
 
 const Footer = () => {
   const data = useStaticQuery(query) || {};
-  const logoimage = data.allSanitySiteSettings.edges[0].node.logoimage;
-  const socialIcon = data.allSanitySocials.edges;
+  const logoimage = data.allSanitySiteSettings.edges[0]?.node?.logoimage;
+  const socialIcon = data.allSanitySocials?.edges;
 
   return (
     <footer>

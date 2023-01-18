@@ -54,8 +54,8 @@ const query = graphql`
 
 const Header = () => {
   const data = useStaticQuery(query) || {};
-  const logoimage = data.allSanitySiteSettings.edges[0].node.logoimage;
-  const socialIcon = data.allSanitySocials.edges;
+  const logoimage = data.allSanitySiteSettings?.edges[0]?.node?.logoimage;
+  const socialIcon = data.allSanitySocials?.edges;
 
   return (
     <header className="bg-black w-full px-[60px] py-7 flex md:flex-row flex-col gap-4">

@@ -43,7 +43,7 @@ const query = graphql`
 
 const About = () => {
   const data = useStaticQuery(query) || {};
-  const aboutData = data.allSanityAbout.edges[0].node;
+  const aboutData = data.allSanityAbout.edges[0]?.node;
   return (
     <div id="about">
       <div className="container mx-auto">
