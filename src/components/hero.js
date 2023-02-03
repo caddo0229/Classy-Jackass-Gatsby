@@ -7,16 +7,9 @@ const query = graphql`
     allSanitySiteSettings {
       nodes {
         herovideo {
-          asset {
-            _key
-            _type
-            status
-            assetId
-            playbackId
-            filename
-            thumbTime
-            __typename
-          }
+          title
+          vimeoId
+          description
         }
       }
     }
@@ -25,26 +18,24 @@ const query = graphql`
 
 const Hero = () => {
   const data = useStaticQuery(query) || {};
-  const herovideo = data.allSanitySiteSettings?.nodes[0]?.herovideo?.asset;
-  console.log(data.allSanitySiteSettings);
+  const herovideo = data.allSanitySiteSettings?.nodes[0]?.herovideo;
+  console.log("----------", herovideo)
   return (
     <div id="hero">
-      <div className="relative">
+      <div className="relative pt-[56.25%]">
         {herovideo ? (
-          <MuxVideo
-            style={{ width: "100%" }}
-            playbackId={herovideo?.playbackId}
-            src={`https://stream.mux.com/${herovideo?.playbackId}.m3u8`}
-            poster={`https://image.mux.com/${herovideo?.playbackId}/thumbnail.png`}  
-            metadata={{
-              video_id: herovideo?.assetId,
-              video_title: "Hero Video",
-              viewer_user_id: "1",
+          <iframe
+            src={`https://player.vimeo.com/video/${herovideo.vimeoId}?loop=1&autoplay=1&controls=0`}
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
             }}
-            streamType="on-demand"
-            loop
-            autoPlay
-            muted
+            frameBorder="0"
+            allow="autoplay; fullscreen"
+            allowFullScreen
           />
         ) : (
           <></>
