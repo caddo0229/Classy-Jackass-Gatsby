@@ -10,11 +10,12 @@ const Signup = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = async (data) => {
-    let { fname, lname, email } = data;
+    let { fname, lname, email, message } = data;
     let listFields = {
       FNAME: fname,
       LNAME: lname,
       EMAIL: email,
+      MESSAGE: message,
     };
     const result = await addToMailchimp(email, listFields);
     console.log(result);
@@ -80,6 +81,15 @@ const Signup = () => {
                 {errors.email && (
                   <p className="text-[red] pl-[1rem]">Email is required.</p>
                 )}
+              </div>
+              <div className="pb-[40px]">
+                <textarea
+                  className="rounded-[18px] w-full py-[18px] px-[24px] leading-[32px] border-2 text-[24px] placeholder-white
+                       border-white bg-transparent text-white"
+                       rows={5}
+                  placeholder="Message"
+                  {...register("message")}
+                ></textarea>
               </div>
               <div className="flex items-center justify-between">
                 <button
